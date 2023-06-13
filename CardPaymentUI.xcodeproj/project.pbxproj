@@ -11,6 +11,7 @@
 		8C203E562A39000200479675 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C203E552A39000200479675 /* ContentView.swift */; };
 		8C203E582A39000200479675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C203E572A39000200479675 /* Assets.xcassets */; };
 		8C203E5B2A39000200479675 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C203E5A2A39000200479675 /* Preview Assets.xcassets */; };
+		8C203E632A39016000479675 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C203E622A39016000479675 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8C203E552A39000200479675 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8C203E572A39000200479675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C203E5A2A39000200479675 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8C203E622A39016000479675 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		8C203E522A39000200479675 /* CardPaymentUI */ = {
 			isa = PBXGroup;
 			children = (
+				8C203E612A39013900479675 /* SharedViews */,
 				8C203E532A39000200479675 /* CardPaymentUIApp.swift */,
 				8C203E552A39000200479675 /* ContentView.swift */,
 				8C203E572A39000200479675 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				8C203E5A2A39000200479675 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8C203E612A39013900479675 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				8C203E622A39016000479675 /* CustomTextField.swift */,
+			);
+			path = SharedViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				8C203E562A39000200479675 /* ContentView.swift in Sources */,
 				8C203E542A39000200479675 /* CardPaymentUIApp.swift in Sources */,
+				8C203E632A39016000479675 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

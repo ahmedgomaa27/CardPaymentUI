@@ -25,21 +25,30 @@ struct CardPayment: View {
             VStack(spacing: 24) {
                 CardComponentView(title: "Name On Card",
                                   placeholder: "Enter the name of the card",
-                                  text: $viewModel.cardNameHolder)
+                                  cardComponentItem: viewModel.cardNameHolder)
                 
                 CardComponentView(title: "Card Number",
                                   placeholder: "Enter your card number",
-                                  text: $viewModel.cardNumber)
+                                  formatter: CardNumberFormatter(),
+                                  cardComponentItem: viewModel.cardNumber)
                 
-                HStack {
+                HStack(alignment: .top) {
                     CardComponentView(title: "Expiry Date",
                                       placeholder: "MM/YY",
-                                      text: $viewModel.cardExpiryDate)
+                                      formatter: ExpiryDateFormatter(),
+                                      cardComponentItem: viewModel.cardExpiryDate)
                     CardComponentView(title: "CVV",
                                       placeholder: "Enter card CVV",
-                                      text: $viewModel.cardCVV)
+                                      formatter: CVVFormatter(),
+                                      cardComponentItem: viewModel.cardCVV)
                 }
                 Spacer()
+                CustomButton(title: "Submit",
+                             showLoading: $viewModel.showLoading,
+                             isActive: $viewModel.isSubmitActive) {
+                    //TODO: call the payment service from VM
+                }
+
             }
             .padding(16)
             
@@ -50,24 +59,5 @@ struct CardPayment: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardPayment(viewModel: CardPaymentViewModel())
-    }
-}
-
-struct CardComponentView: View {
-    var title: String
-    var placeholder: String
-    @Binding var text: String
-//    @Binding var errorText: String
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-            CustomTextField(text: $text,
-                            placeHolder: placeholder)
-//            if !errorText.isEmpty {
-//                Text(errorText)
-//                    .foregroundColor(.red)
-//            }
-        }
     }
 }

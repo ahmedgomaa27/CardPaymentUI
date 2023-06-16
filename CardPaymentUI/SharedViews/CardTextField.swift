@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct CustomTextField: View {
+struct CardTextField: View {
     
     @Binding var text: String
     var placeHolder: String = ""
+    var formatter: CardComponentFormatter?
     
     var body: some View {
         ZStack {
@@ -21,14 +22,19 @@ struct CustomTextField: View {
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(Color.gray, lineWidth: 1)
                 )
+                .keyboardType(formatter?.setKeyboardType() ?? .default)
+                .onChange(of: text) { newValue in
+                    if let formatter = formatter {
+                        text = formatter.format(text: newValue)
+                    }
+                }
         }
     }
 }
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextField(text: .constant(""))
+        CardTextField(text: .constant(""))
             .padding(16)
     }
 }
-

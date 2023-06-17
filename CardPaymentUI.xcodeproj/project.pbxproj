@@ -140,9 +140,8 @@
 		8C203E642A39307A00479675 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8C515BA82A3E11E400A78457 /* CardPayment */,
 				8C515B822A3CC34800A78457 /* CardComponentItem */,
-				8C203E552A39000200479675 /* CardPayment.swift */,
-				8C203E652A39309F00479675 /* CardPaymentViewModel.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -215,6 +214,15 @@
 				8C515BA52A3DFF4100A78457 /* MockedCardPaymentService.swift */,
 			);
 			path = CardPaymentTests;
+			sourceTree = "<group>";
+		};
+		8C515BA82A3E11E400A78457 /* CardPayment */ = {
+			isa = PBXGroup;
+			children = (
+				8C203E552A39000200479675 /* CardPayment.swift */,
+				8C203E652A39309F00479675 /* CardPaymentViewModel.swift */,
+			);
+			path = CardPayment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

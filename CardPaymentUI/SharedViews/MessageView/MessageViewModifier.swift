@@ -10,7 +10,7 @@ import SwiftUI
 struct MessageViewModifier: ViewModifier {
 
     @Binding var isPresented: Bool
-    @Binding var type: Constants.MessageType
+    var type: Constants.MessageType = .success
     var text: String
     var duration: CGFloat = 2
     
@@ -19,11 +19,8 @@ struct MessageViewModifier: ViewModifier {
             content
             if isPresented {
                 VStack {
-//                    Spacer()
                     MessageView(text: text, backgroundColor: getMessageColor())
                     Spacer()
-//                    Spacer()
-//                        .frame(height: 40)
                 }
                 .animation(.easeInOut(duration: 0.3))
                 .transition(.move(edge: .top))

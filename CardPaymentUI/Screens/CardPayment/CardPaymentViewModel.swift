@@ -20,8 +20,8 @@ class CardPaymentViewModel: ObservableObject {
     @Published var showLoading: Bool = false
 
     @Published var isMessagePresented: Bool = false
-    @Published var messageType: Constants.MessageType = .success
-    @Published var messageText: String = ""
+    var messageType: Constants.MessageType = .success
+    var messageText: String = ""
     
     var response: PaymentResponseModel?
     

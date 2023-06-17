@@ -54,7 +54,7 @@ struct CardPayment: View {
             
         }
         .modifier(MessageViewModifier(isPresented: $viewModel.isMessagePresented,
-                                      type: $viewModel.messageType,
+                                      type: viewModel.messageType,
                                       text: viewModel.messageText))
     }
 }

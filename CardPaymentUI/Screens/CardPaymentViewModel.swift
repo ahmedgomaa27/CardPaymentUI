@@ -23,6 +23,8 @@ class CardPaymentViewModel: ObservableObject {
     @Published var messageType: Constants.MessageType = .success
     @Published var messageText: String = ""
     
+    var response: PaymentResponseModel?
+    
     private var cancellables = Set<AnyCancellable>()
     private let service: CardPaymentServiceProtocol
     private var paymentCancellable: AnyCancellable?
@@ -52,8 +54,9 @@ class CardPaymentViewModel: ObservableObject {
                     //show Error
                     self.showMessage(type: .error, error: error)
                 }
-            } receiveValue: { response in
+            } receiveValue: { paymentResponse in
                 self.showLoading = false
+                self.response = paymentResponse
                 //show success
                 //if we need to save the reponse, token will be saved in KeyChain to make sure it saved in a secured way
                 self.showMessage(type: .success)

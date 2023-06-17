@@ -26,9 +26,9 @@ struct CustomButton: View {
                     LoadingIndicatorView(size: height/2)
                 }
             }
-            .disabled(!isActive)
-            .opacity(isActive ? 1: 0.5)
         }
+        .disabled(!isActive)
+        .opacity(isActive ? 1: 0.5)
     }
 }
 

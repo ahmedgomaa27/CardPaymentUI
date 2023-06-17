@@ -46,18 +46,21 @@ struct CardPayment: View {
                 CustomButton(title: "Submit",
                              showLoading: $viewModel.showLoading,
                              isActive: $viewModel.isSubmitActive) {
-                    //TODO: call the payment service from VM
+                    viewModel.startPayment()
                 }
 
             }
             .padding(16)
             
         }
+        .modifier(MessageViewModifier(isPresented: $viewModel.isMessagePresented,
+                                      type: $viewModel.messageType,
+                                      text: viewModel.messageText))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardPayment(viewModel: CardPaymentViewModel())
+        CardPayment(viewModel: CardPaymentViewModel(amount: 10))
     }
 }

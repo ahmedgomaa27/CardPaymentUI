@@ -14,16 +14,53 @@ class CardPaymentViewModel: ObservableObject {
     let cardNumber: CardComponentItem = CardComponentItem()
     let cardExpiryDate: CardComponentItem = CardComponentItem()
     let cardCVV: CardComponentItem = CardComponentItem()
+    let amount: Double
+
     @Published var isSubmitActive: Bool = false
     @Published var showLoading: Bool = false
+
+    @Published var isMessagePresented: Bool = false
+    @Published var messageType: Constants.MessageType = .success
+    @Published var messageText: String = ""
     
     private var cancellables = Set<AnyCancellable>()
+    private let service: CardPaymentServiceProtocol
+    private var paymentCancellable: AnyCancellable?
     
-    init() {
+    
+    init(service: CardPaymentServiceProtocol = CardPaymentService(), amount: Double) {
+        self.service = service
+        self.amount = amount
         bindActions()
     }
     
-    func bindActions() {
+    func startPayment() {
+        showLoading = true
+        let dataModel = PaymentModel(cardNameHolder: cardNameHolder.value,
+                                     cardNumber: cardNumber.value.replacingOccurrences(of: " ", with: ""),
+                                     expiryDate: cardExpiryDate.value,
+                                     cvv: cardCVV.value,
+                                     amount: amount)
+        
+        paymentCancellable = service.startPayment(model: dataModel)
+            .sink { completion in
+                self.showLoading = false
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    //show Error
+                    self.showMessage(type: .error, error: error)
+                }
+            } receiveValue: { response in
+                self.showLoading = false
+                //show success
+                self.showMessage(type: .success)
+            }
+
+    }
+    
+    private func bindActions() {
         cardNameHolder.$value.sink { newValue in
             self.validateCardHolderName(text: newValue)
         }
@@ -68,7 +105,6 @@ class CardPaymentViewModel: ObservableObject {
     private func isValidCardNumber(text: String) -> Bool {
         //remove all spaces from text
         let numberText = text.filter({$0 != " "})
-        print(numberText)
         return numberText.isValidVisaCardNumber() || numberText.isValidMastercardCardNumber()
     }
     
@@ -97,5 +133,16 @@ class CardPaymentViewModel: ObservableObject {
         isValidCardNumber(text: cardNumber.value) &&
         cardExpiryDate.value.isExpiryDateValid() &&
         cardCVV.value.isCVVValid()
+    }
+    
+    private func showMessage(type: Constants.MessageType, error: Constants.AppErrors? = nil) {
+        self.messageType = type
+        self.isMessagePresented = true
+        switch type {
+        case .success:
+            self.messageText = "Payment Done Succesfully"
+        case .error:
+            self.messageText = error?.message ?? Constants.AppErrors.genericError.message
+        }
     }
 }

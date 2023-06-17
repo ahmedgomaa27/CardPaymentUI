@@ -28,6 +28,7 @@ struct CardTextField: View {
                         text = formatter.format(text: newValue)
                     }
                 }
+            //we can use another way to handle it, by using focus state to check text field focus and when focus is false we send the binded value to card component item
         }
     }
 }

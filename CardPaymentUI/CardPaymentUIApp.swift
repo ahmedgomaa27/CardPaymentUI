@@ -11,7 +11,7 @@ import SwiftUI
 struct CardPaymentUIApp: App {
     var body: some Scene {
         WindowGroup {
-            CardPayment(viewModel: CardPaymentViewModel())
+            CardPayment(viewModel: CardPaymentViewModel(amount: 10))
         }
     }
 }

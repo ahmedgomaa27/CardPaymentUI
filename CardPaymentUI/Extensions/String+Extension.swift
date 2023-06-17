@@ -34,12 +34,10 @@ extension String {
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"
         monthFormatter.locale = Locale(identifier: "en")
-        let currentMonth = Int(monthFormatter.string(from: currentDate))
         
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yy"
         yearFormatter.locale = Locale(identifier: "en")
-        let currentYear = Int(yearFormatter.string(from: currentDate))
         
         let expiryDatesplitted = self.split(separator: "/")
         

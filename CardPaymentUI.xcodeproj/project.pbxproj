@@ -19,6 +19,13 @@
 		8C515B812A3C96D700A78457 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B802A3C96D700A78457 /* CustomButton.swift */; };
 		8C515B842A3CC35C00A78457 /* CardComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B832A3CC35C00A78457 /* CardComponentView.swift */; };
 		8C515B862A3CC3A500A78457 /* CardComponentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B852A3CC3A500A78457 /* CardComponentItem.swift */; };
+		8C515B892A3DE0DA00A78457 /* CardPaymentServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B882A3DE0DA00A78457 /* CardPaymentServiceProtocol.swift */; };
+		8C515B8C2A3DE12600A78457 /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B8B2A3DE12600A78457 /* PaymentModel.swift */; };
+		8C515B8E2A3DE16A00A78457 /* PaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B8D2A3DE16A00A78457 /* PaymentResponseModel.swift */; };
+		8C515B902A3DE36F00A78457 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B8F2A3DE36F00A78457 /* Constants.swift */; };
+		8C515B922A3DE3A100A78457 /* CardPaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B912A3DE3A100A78457 /* CardPaymentService.swift */; };
+		8C515B952A3DF41300A78457 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B942A3DF41300A78457 /* MessageView.swift */; };
+		8C515B972A3DF49A00A78457 /* MessageViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C515B962A3DF49A00A78457 /* MessageViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		8C515B802A3C96D700A78457 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8C515B832A3CC35C00A78457 /* CardComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponentView.swift; sourceTree = "<group>"; };
 		8C515B852A3CC3A500A78457 /* CardComponentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponentItem.swift; sourceTree = "<group>"; };
+		8C515B882A3DE0DA00A78457 /* CardPaymentServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentServiceProtocol.swift; sourceTree = "<group>"; };
+		8C515B8B2A3DE12600A78457 /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		8C515B8D2A3DE16A00A78457 /* PaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResponseModel.swift; sourceTree = "<group>"; };
+		8C515B8F2A3DE36F00A78457 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C515B912A3DE3A100A78457 /* CardPaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentService.swift; sourceTree = "<group>"; };
+		8C515B942A3DF41300A78457 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		8C515B962A3DF49A00A78457 /* MessageViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,8 @@
 		8C203E522A39000200479675 /* CardPaymentUI */ = {
 			isa = PBXGroup;
 			children = (
+				8C515B8A2A3DE11C00A78457 /* Models */,
+				8C515B872A3DE0C700A78457 /* Services */,
 				8C515B7A2A3B61E000A78457 /* Utilities */,
 				8C515B772A3B59AA00A78457 /* Extensions */,
 				8C203E642A39307A00479675 /* Screens */,
@@ -89,6 +105,7 @@
 		8C203E612A39013900479675 /* SharedViews */ = {
 			isa = PBXGroup;
 			children = (
+				8C515B932A3DF3FE00A78457 /* MessageView */,
 				8C203E622A39016000479675 /* CardTextField.swift */,
 				8C515B7E2A3C969B00A78457 /* LoadingIndicatorView.swift */,
 				8C515B802A3C96D700A78457 /* CustomButton.swift */,
@@ -118,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8C515B7D2A3B621F00A78457 /* CardComponentFormatter */,
+				8C515B8F2A3DE36F00A78457 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -137,6 +155,33 @@
 				8C515B852A3CC3A500A78457 /* CardComponentItem.swift */,
 			);
 			path = CardComponentItem;
+			sourceTree = "<group>";
+		};
+		8C515B872A3DE0C700A78457 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C515B882A3DE0DA00A78457 /* CardPaymentServiceProtocol.swift */,
+				8C515B912A3DE3A100A78457 /* CardPaymentService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8C515B8A2A3DE11C00A78457 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C515B8B2A3DE12600A78457 /* PaymentModel.swift */,
+				8C515B8D2A3DE16A00A78457 /* PaymentResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8C515B932A3DF3FE00A78457 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				8C515B942A3DF41300A78457 /* MessageView.swift */,
+				8C515B962A3DF49A00A78457 /* MessageViewModifier.swift */,
+			);
+			path = MessageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,16 +254,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C515B8C2A3DE12600A78457 /* PaymentModel.swift in Sources */,
 				8C515B7C2A3B61FE00A78457 /* CardComponentFormatter.swift in Sources */,
 				8C515B842A3CC35C00A78457 /* CardComponentView.swift in Sources */,
 				8C203E562A39000200479675 /* CardPayment.swift in Sources */,
+				8C515B922A3DE3A100A78457 /* CardPaymentService.swift in Sources */,
 				8C203E662A39309F00479675 /* CardPaymentViewModel.swift in Sources */,
 				8C203E542A39000200479675 /* CardPaymentUIApp.swift in Sources */,
 				8C515B812A3C96D700A78457 /* CustomButton.swift in Sources */,
+				8C515B8E2A3DE16A00A78457 /* PaymentResponseModel.swift in Sources */,
 				8C515B862A3CC3A500A78457 /* CardComponentItem.swift in Sources */,
+				8C515B972A3DF49A00A78457 /* MessageViewModifier.swift in Sources */,
 				8C515B7F2A3C969B00A78457 /* LoadingIndicatorView.swift in Sources */,
 				8C515B792A3B59BE00A78457 /* String+Extension.swift in Sources */,
+				8C515B952A3DF41300A78457 /* MessageView.swift in Sources */,
 				8C203E632A39016000479675 /* CardTextField.swift in Sources */,
+				8C515B902A3DE36F00A78457 /* Constants.swift in Sources */,
+				8C515B892A3DE0DA00A78457 /* CardPaymentServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,6 +55,7 @@ class CardPaymentViewModel: ObservableObject {
             } receiveValue: { response in
                 self.showLoading = false
                 //show success
+                //if we need to save the reponse, token will be saved in KeyChain to make sure it saved in a secured way
                 self.showMessage(type: .success)
             }
 

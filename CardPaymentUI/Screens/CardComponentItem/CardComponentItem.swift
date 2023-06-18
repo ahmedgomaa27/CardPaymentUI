@@ -10,11 +10,9 @@ import Foundation
 class CardComponentItem: ObservableObject {
     @Published var value: String
     @Published var errorValue: String?
-    @Published var disabled: Bool
     
-    init(value: String = "", errorValue: String? = nil, disabled: Bool = false) {
+    init(value: String = "", errorValue: String? = nil) {
         self.value = value
         self.errorValue = errorValue
-        self.disabled = disabled
     }
 }
